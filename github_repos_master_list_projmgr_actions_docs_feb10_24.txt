@@ -1,0 +1,383 @@
+github_repos_master_list_projmgr_actions_docs_feb10_24.txt
+
+
+github_repos_master_list_projmgr_docs_feb10_24.txt (topdoc)
+
+==github_repos_master_list_projmgr_actions_docs_feb10_24.txt
+github_repos_master_list_projmgr_onboarding_docs_feb10_24.txt
+github_repos_master_list_projmgr_workflows_docs_feb10_24.txt
+
+	github_test_setup_f1_24_2.txt
+	Unsaved Document 17
+	github_tutor_for_steps_cmds_feb1_24.txt
+	github_granular_cmds_feb2_24.txt
+
+
+need to be able to have "process" to use following "actions"
+ for projDev for the jniBooks
+
+actions are the unique/individual github/git/gh cmds that are 
+	used from the cmdline, as well as cmds that are part of 
+	a workflow/recipe
+
+
+create examples/tutorials/lessons/etc for the user
+-a dev would need to know how to interface with 
+	github/repos/git/gh handle code functions
+
+github
+create/delete repos
+create/delete sshkey for local ssh access
+clone repos
+create version/branch
+upload/download repos/branch from github to local
+user acct signup
+delete project/repos/branch
+fork a repos
+set pub/priv perms on repos/project
+do a pull request
+handle a pull request
+ -define/describe what a pull request is
+do a merge of a branch/multiple branches into the "Trunk" main/master
+-be able to "mv" create a "main" (proj/repos) to another version 
+	for "rollback"
+
+
+
+github/client actions
+
+use github as version/source code app/repos
+setup project/repo template with initial 
+	dirs/files
+setup process/cmds to be able to
+	clone local repos
+	make changes to local files/repos
+	update/merge changes to the github proj
+	handle/manage pull requests
+	assign/have resource responsible for 
+	 "approving" adding/merging changes
+	-change voting process on changes??
+	-rollback process?
+	-versioning process
+	-document all of the steps/processes/cmds 
+	 for "new' users/devs
+	rename file
+	rename folder
+	mv file/mv folder
+
+	create/delete repos
+	create/delete sshkey for local ssh access
+	clone repos
+	create version/branch
+	upload/download repos/branch from github to local
+	user acct signup
+	delete project/repos/branch
+	fork a repos
+	set pub/priv perms on repos/project
+	do a pull request
+	handle a pull request
+	 -define/describe what a pull request is
+	do a merge of a branch/multiple branches into the "Trunk" main/master
+	-be able to "mv" create a "main" (proj/repos) to another version 
+		for "rollback"
+
+	git init
+	git status
+	git fetch
+	git add
+	git remote
+	git branch
+	git commit
+	git config 
+	git remote set-url
+	git push
+	git clone
+	git checkout -b new-branch
+	git fetch --all
+	git remote rename origin upstream
+	git switch 
+	git 
+	git 
+	--any others ??
+
+create proj/repo in the user/site
+
+on the cmdline
+ create a start/init repos
+ -git init
+
+ add file to repo
+	test file -- echo '' >test.dat
+
+	git status -- shows tracked/untraced files
+		test.dat
+
+	"staging env"
+
+ add file to staging, prior to commit..
+
+	git add test.dat
+	git status
+
+
+	git commit -m "add test.dat commit"
+
+branch stuff...
+ create
+
+ delete
+
+
+actions...
+
+local
+ create sshkey pub/priv
+
+remote:
+ create acct/user
+ create test repos "testA"
+  setup ssh privkey for testA repos
+	get the "ssh" url for the testA repos
+	use this on the local side to mod the repos...
+
+do local opertions using the "gh" cmds...
+means the local ubuntu os has to "apt install gh" 
+
+github local/remote cmds...
+feb1/24
+create remote repos to start
+ do this in the url/github process
+ use the test url ssh to access the repos
+ -this could have been https.. use ssh for now..
+
+ in order to use ssh.. need to set local ssh pub/priv key
+ -and copy the sshpub key to the github user/repos
+  -does there need to be ssh pub/priv key for each repos 
+	for the user/acct... or can one ssh pubpriv key work?
+  -how to test this... for diff repos..
+
+
+actions...
+
+local
+ create sshkey pub/priv
+
+remote:
+ create acct/user
+ create test repos "testA"
+  setup ssh privkey for testA repos
+	get the "ssh" url for the testA repos
+	use this on the local side to mod the repos...
+
+do local opertions using the "gh" cmds...
+means the local ubuntu os has to "apt install gh" 
+
+
+git add  --all 
+git config --global user.email "sam@yahoo.com"
+git config --global user.name "sam"
+
+git commit -m "first commit"
+
+git remote -v
+origin >>> 
+
+/--neither of these appear to work as is...
+git remote add origin https://github.com/username/repo_name.git
+git remote add origin git@github.com:deehill/clist.git
+
+//--this reset/sets the url to be able to use the sshkey --?? is thi required
+	seems to work
+git remote set-url origin git@github.com:deehill/clist.git
+
+//--pushes changes to the remote/upstream...
+git push
+
+git test actions
+setup new git repos
+create local dir with folders/files
+add local dir to remote repos
+
+mod local dif/folder
+ add changes to remote repo
+
+as sep user, or local user see/view file changes to repos
+
+as sep user on another droplet
+ create local dir with remote github/repos
+
+make a change to a dir/file from remote repo
+does the process require cloning entire repos, 
+ or can i have one a part of the repos
+ to download/work on
+ -then edit
+ -then reinsert the change
+ 
+
+
+etc
+
+
+gh 
+
+pull request 
+fork action
+rollback of repos/branch
+
+ 
+how to create/manage branch/version
+
+create version/branch with local changes
+
+diagram(s) illustrating overall processes
+use test github repo for actions
+
+understand how to have "backup"/version control, able to 
+ rollback from dev additions
+
+checkin/checkout of code/repos/branch
+commit code
+test code
+test scripts/recipes/workflows
+
+/*
+	feb10/24
+	--for all "actions" 
+		github/gh/git
+	giv examples
+	use cases
+	cmdline "code" that user can use/invoke to walk through
+	run these over the test cloud instance
+	create/maintain all the actions in a doc on/in the 
+		githgub repos for the actions/onboarding/workflows
+	test out the actions to make sure they work!!!
+*/
+
+
+
+=================
+	github_tutor_for_steps_cmds_feb1_24.txt
+steps:
+  remote
+ create the base repos 
+
+ local
+ create dir structure -- folders/files
+ -use this as the template/structure for updating 
+ 	the repo
+	ex
+		topdir
+			subdir
+			subdir
+			subdir
+			.
+			.
+
+ clone/copy the base repos
+ on thelocal/cmdline
+ -copy/clone repos1 from github (github.com/foo.git)
+	this will have it's own file structure
+	add this to the base repos in a subdir
+ -copy/clone repos2 from github (github.com/foo2.git)
+	this will have it's own file structure
+	add this to the base repos in a subdir
+
+ the goal is to show how to take/use folders/structs from 
+	other repos in a given repos
+	and to then update the base repos with the new/combined 
+	strcture
+
+ be able to extract the struct/dirs from the updated repos 
+	to be able to then copy the dirs/files from the 
+	repos on the local cmdline/env to add to a webserver
+
+ be able to "download"/clone from the repos to make  changes 
+	to it, so others can view the changes, and check in 
+	the changes to have valid branches..
+
+
+*
+show how to have multiple users make changes to the same "code"/file 
+ and 
+	track the changes
+	merge the changes
+	does this generate a different branch?
+	how does this work?
+	what's this kind of workflow entail?
+	what are the steps to do this?
+
+
+
+*
+it appears the concept of "branch" is the same as "version"
+ is this correct?
+how do you make changes to a given select version on the 
+ cmdline?
+if multiple users make changes to a file in a branch, 
+ how do the changes get reconciled?
+what's the sequence of steps to do this?
+	comand line steps/actions --actual cmds (linux -- git/gh)
+	user select the repo/branch
+	user downloads/uses the branch locally
+		does user have ability to download/checkout 
+		 single/multiple files? specific folder? 
+		how does this work.. need to document this.
+	user makes "edits" to the "files" in the given dir(s)
+	 -
+ 	user updates the changes to the files/repos
+	process merges changes to files/repos/versions
+		do changes go in a given branch/version?
+		how do users "ensure" same branch/version 
+		 is being worked on?
+	what process is/can be deployed to be able to 
+	 test a given version/branch/repos being 
+	 worked on
+	-workflow process for users to be on same 
+	 page during the "dev"/testing/release process
+	user checks out repos/branch/version for 
+	 testing
+		process gets the files on the local 
+		 system
+		process copies/places files in the tgt 
+		 dirs for testing
+		process runs "testing" scripts (which 
+		 would need to be in repos as well)
+		process deploys webapp/env as well..
+
+	etc..
+need steps for all of this..
+so, need to work with you to walk though what steps/workflow 
+ has to created
+create the process/workflows/steps
+test all off this for the github/repos/test scenario
+-be able to then have docs/examples of the basic 
+ functions of github for 
+	creating project repos
+	modifying repos
+	working in small team on given project
+	checking in/out, updating, rolling back project/repo changes
+	testing changes on local test system
+	working between different versions/branches
+	deploy tested code/branch to test/release srvr
+	document all steps with example cmds
+
+work with me over a few iterations to get this process working.
+
+	
+can/should user check out for local use files from 
+ multiple repos?
+ -might be needed/used to compare/make changes to 
+	diff versions?
+
+how do you "merge" changes made to 
+
+
+
+
+================================
+================================
+github_granular_cmds_feb2_24.txt
+
+
+
+

@@ -1,0 +1,175 @@
+ssh-add -L | grep -F '7kxoqBtjJClDpQ=' | ssh-add -d -
+
+login as user
+ create sshkey priv/pub id_ed25519_g
+   //ssh-keygen -t ed25519 -C 'your@email.com' -f ~/.ssh/id_ed25519_g -q -N ''
+	--is "C" for passphrase?
+	--per Sam/fed email thread, test without "-C..."
+
+   ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_g 
+	//--this works  -sets up the process to use sshkey pub/priv keys
+		when the ssh pubkey is copied to repos... for the sshkey..
+
+/*
+ feb1/24
+ using ed25519 as key attribute works only on certain newer machines/os versions
+ ubuntu 22+
+ windows 10/11
+ using the same private key is doable -- should prob use separate keys,,
+ use the config file
+ --test  
+		ssh -vT git@github.com
+ to make sure local/remote github ssh keys work
+*/
+
+ set chown/chmod for dir/keys
+ use pub for github website newkey
+
+set ~\.ssh\ "config"
+Host github.com
+  HostName github.com
+  ## 67.205.151.11
+  User git
+  AddKeysToAgent yes
+  #UseKeychain yes
+  IdentityFile /home/crawl_user/.ssh/id_ed25519_g 
+  IdentitiesOnly yes   
+      
+
+
+this appears to be the issue when then running 
+ crawl_user@ubuntu-s-1vcpu-2gb-nyc1-rtt:~/.ssh$ ssh -vT git@github.com
+
+
+
+login as root
+ to 
+
+
+https://www.simplilearn.com/tutorials/git-tutorial/git-tutorial-for-beginner
+https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+
+
+for gh
+ -need to "apt install gh"
+
+github/client actions
+
+use github as version/source code app/repos
+setup project/repo template with initial 
+	dirs/files
+setup process/cmds to be able to
+	clone local repos
+	make changes to local files/repos
+	update/merge changes to the github proj
+	handle/manage pull requests
+	assign/have resource responsible for 
+	 "approving" adding/merging changes
+	-change voting process on changes??
+	-rollback process?
+	-versioning process
+	-document all of the steps/processes/cmds 
+	 for "new' users/devs
+	rename file
+	rename folder
+	mv file/mv folder
+
+create proj/repo in the user/site
+
+on the cmdline
+ create a start/init repos
+ -git init
+
+ add file to repo
+	test file -- echo '' >test.dat
+
+	git status -- shows tracked/untraced files
+		test.dat
+
+	"staging env"
+
+ add file to staging, prior to commit..
+
+	git add test.dat
+	git status
+
+
+	git commit -m "add test.dat commit"
+
+branch stuff...
+ create
+
+ delete
+
+
+
+be able to clone/copy the repos dirs/files to 
+ initialize "new" droplet/instance to run/test 
+ the website/process...
+
+define the dir/file structure for the given web project
+
+define the repos to maintain/track the basic files 
+ that drive the projmgmt process
+ -are there apps/is there app that should be used for this
+
+
+
+saasApps/saasPartners
+-checklist apps for software dev/req/testing/mgmt
+-document management -- proj related docs
+	requirements use case/content/ui/ux/psuedo logic/
+	tie into github
+
+github/test template landingPage repos
+jan21_23
+
+using the 178.128.154.65 
+ ubuntu-s-1vcpu-2gb-nyc1-rtt
+ -this droplet has the "github" deehill
+  sshkey setup on the remote -- github.com 
+  as well as in the local /crawl_user/.ssh/config 
+		/crawl_user/.ssh/id_ed25519 (*_g) for priv/pub keys..
+
+might need to do the same with the "local/laptop" to be able to 
+ use different systems..
+ -does this imply needing to mv the priv ey to connect to the 
+ 	remote/pub key... I would think so..
+
+git clone  -b paddle-billing-api-v2  https://github.com/thedevdojo/wave.git gfoo
+git clone  -b paddle-billing-api-v2  https://github.com/thedevdojo/wave.git gfoo "<<gfoo is the local dir"
+
+git clone https://github.com/deehill/clist.git clist "<< clist is the local dir"
+
+
+
+git test actions
+setup new git repos
+create local dir with folders/files
+add local dir to remote repos
+
+mod local dif/folder
+ add changes to remote repo
+
+as sep user, or local user see/view file changes to repos
+
+as sep user on another droplet
+ create local dir with remote github/repos
+
+make a change to a dir/file from remote repo
+does the process require cloning entire repos, 
+ or can i have one a part of the repos
+ to download/work on
+ -then edit
+ -then reinsert the change
+ 
+
+
+
+
+------------------------------------------------------
+at this point...
+ the priv/pub ssh keys are created
+
+
+

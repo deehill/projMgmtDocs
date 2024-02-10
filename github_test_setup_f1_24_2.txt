@@ -1,0 +1,436 @@
+github_test_setup_f1_24_2.txt
+
+ssh-add -L | grep -F '7kxoqBtjJClDpQ=' | ssh-add -d -
+
+login as user
+ create sshkey priv/pub id_ed25519_g
+   //ssh-keygen -t ed25519 -C 'your@email.com' -f ~/.ssh/id_ed25519_g -q -N ''
+	--is "C" for passphrase?
+	--per Sam/fed email thread, test without "-C..."
+
+   ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_g 
+	//--this works  -sets up the process to use sshkey pub/priv keys
+		when the ssh pubkey is copied to repos... for the sshkey..
+
+/*
+ feb1/24
+ using ed25519 as key attribute works only on certain newer machines/os versions
+ ubuntu 22+
+ windows 10/11
+ using the same private key is doable -- should prob use separate keys,,
+ use the config file
+ --test  
+		ssh -vT git@github.com
+ to make sure local/remote github ssh keys work
+*/
+
+ set chown/chmod for dir/keys
+ use pub for github website newkey
+
+set ~\.ssh\ "config"
+Host github.com
+  HostName github.com
+  ## 67.205.151.11
+  User git
+  AddKeysToAgent yes
+  #UseKeychain yes
+  IdentityFile /home/crawl_user/.ssh/id_ed25519_g 
+  IdentitiesOnly yes   
+      
+
+
+this appears to be the issue when then running 
+ crawl_user@ubuntu-s-1vcpu-2gb-nyc1-rtt:~/.ssh$ ssh -vT git@github.com
+//--need to run this as the "crawl_user" !!!!
+//--or the user that has the sshkey.. and the config file..
+
+
+
+
+login as root
+ to 
+
+
+https://www.simplilearn.com/tutorials/git-tutorial/git-tutorial-for-beginner
+https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+
+
+for gh
+ -need to "apt install gh"
+
+github/client actions
+
+use github as version/source code app/repos
+setup project/repo template with initial 
+	dirs/files
+setup process/cmds to be able to
+	clone local repos
+	make changes to local files/repos
+	update/merge changes to the github proj
+	handle/manage pull requests
+	assign/have resource responsible for 
+	 "approving" adding/merging changes
+	-change voting process on changes??
+	-rollback process?
+	-versioning process
+	-document all of the steps/processes/cmds 
+	 for "new' users/devs
+	rename file
+	rename folder
+	mv file/mv folder
+
+create proj/repo in the user/site
+
+on the cmdline
+ create a start/init repos
+ -git init
+
+ add file to repo
+	test file -- echo '' >test.dat
+
+	git status -- shows tracked/untraced files
+		test.dat
+
+	"staging env"
+
+ add file to staging, prior to commit..
+
+	git add test.dat
+	git status
+
+
+	git commit -m "add test.dat commit"
+
+branch stuff...
+ create
+
+ delete
+
+
+
+be able to clone/copy the repos dirs/files to 
+ initialize "new" droplet/instance to run/test 
+ the website/process...
+
+define the dir/file structure for the given web project
+
+define the repos to maintain/track the basic files 
+ that drive the projmgmt process
+ -are there apps/is there app that should be used for this
+
+
+
+saasApps/saasPartners
+-checklist apps for software dev/req/testing/mgmt
+-document management -- proj related docs
+	requirements use case/content/ui/ux/psuedo logic/
+	tie into github
+
+github/test template landingPage repos
+jan21_23
+
+using the 178.128.154.65 
+ ubuntu-s-1vcpu-2gb-nyc1-rtt
+ -this droplet has the "github" deehill
+  sshkey setup on the remote -- github.com 
+  as well as in the local /crawl_user/.ssh/config 
+		/crawl_user/.ssh/id_ed25519 (*_g) for priv/pub keys..
+
+might need to do the same with the "local/laptop" to be able to 
+ use different systems..
+ -does this imply needing to mv the priv ey to connect to the 
+ 	remote/pub key... I would think so..
+
+git clone  -b paddle-billing-api-v2  https://github.com/thedevdojo/wave.git gfoo
+git clone  -b paddle-billing-api-v2  https://github.com/thedevdojo/wave.git gfoo "<<gfoo is the local dir"
+
+git clone https://github.com/deehill/clist.git clist "<< clist is the local dir"
+
+
+
+git test actions
+setup new git repos
+create local dir with folders/files
+add local dir to remote repos
+
+mod local dif/folder
+ add changes to remote repo
+
+as sep user, or local user see/view file changes to repos
+
+as sep user on another droplet
+ create local dir with remote github/repos
+
+make a change to a dir/file from remote repo
+does the process require cloning entire repos, 
+ or can i have one a part of the repos
+ to download/work on
+ -then edit
+ -then reinsert the change
+ 
+how to create/manage branch/version
+
+
+------------------------------------------------------
+at this point...
+ the priv/pub ssh keys are created
+
+
+github local/remote cmds...
+feb1/24
+create remote repos to start
+ do this in the url/github process
+ use the test url ssh to access the repos
+ -this could have been https.. use ssh for now..
+
+ in order to use ssh.. need to set local ssh pub/priv key
+ -and copy the sshpub key to the github user/repos
+  -does there need to be ssh pub/priv key for each repos 
+	for the user/acct... or can one ssh pubpriv key work?
+  -how to test this... for diff repos..
+
+
+actions...
+
+local
+ create sshkey pub/priv
+
+remote:
+ create acct/user
+ create test repos "testA"
+  setup ssh privkey for testA repos
+	get the "ssh" url for the testA repos
+	use this on the local side to mod the repos...
+
+do local opertions using the "gh" cmds...
+means the local ubuntu os has to "apt install gh" 
+
+github local/remote cmds...
+feb1/24
+create remote repos to start
+ do this in the url/github process
+ use the test url ssh to access the repos
+ -this could have been https.. use ssh for now..
+
+ in order to use ssh.. need to set local ssh pub/priv key
+ -and copy the sshpub key to the github user/repos
+  -does there need to be ssh pub/priv key for each repos 
+	for the user/acct... or can one ssh pubpriv key work?
+  -how to test this... for diff repos..
+
+
+actions...
+
+local
+ create sshkey pub/priv
+
+remote:
+ create acct/user
+ create test repos "testA"
+  setup ssh privkey for testA repos
+	get the "ssh" url for the testA repos
+	use this on the local side to mod the repos...
+
+do local opertions using the "gh" cmds...
+means the local ubuntu os has to "apt install gh" 
+
+
+start with the initial default/empty repos on github
+-- for now. might change this later..
+	this gets filled in by the localgit/gh github cmds
+
+/*
+	I
+	use the initial/base repos that's empty to set up the 
+	initial template -- with the wave/react repos...
+
+	once this is done.. put this into the updated repos 
+	for use as the base landingPageTemplate_repo
+
+	the base landingPageTemplate_repo then uses the 
+	 installed github "new" repos
+
+		will need to somehow use cmd to create/insert/upload 
+		 the local repos to the new/base repos..
+	TODO!!! feb1/24
+*/
+
+--need to move dir/folder/files.. to the ubuntu sys..
+ then use the git
+
+/////git clone https://github.com/deehill/clist.git /apps/parseapp3/clist "<< clist is the local dir"
+
+
+set the dir crawl_user/777 to handle any/all github/gh/git cmds..
+
+/*
+copy the/apps/parseapp3/ghubRepoTest dir to the /tmp/clist
+ /bin/cp -Rp /home/crawl_user/gfoo /apps/parseapp3/gff/.
+ /bin/cp -Rp /apps/parseapp3/ghubRepoTest /apps/parseapp3/clist/.
+*/
+
+ mkdir /apps/parseapp3/clist2
+ chmod -R 777 /apps/parseapp3/clist2
+ chown -R crawl_user:crawl_user /apps/parseapp3/clist2
+
+ mkdir /home/crawl_user/aa/clist3
+ chmod -R 777 /home/crawl_user/aa/clist3
+ chown -R crawl_user:crawl_user /home/crawl_user/aa/clist3
+
+test the cp of dir...
+
+/*
+ /bin/cp -Rp /apps/parseapp3/ghubRepoTest /apps/parseapp3/clist2/.
+		nope -- generates clist2/ghubRepoTest <<
+
+ cd /apps/parseapp3/clist2
+ cd /apps/parseapp3
+ /bin/rm /apps/parseapp3/clist2/.
+ /bin/rm /apps/parseapp3/clist2/*.*
+*/
+
+/*
+	steps
+	clear out the clist2 --tmp dir
+	do the local clone into "clist2"  --tmp dir
+	init the "template repos files into clist2 a well
+
+	create the waveApp/lpuserApp for the init template process
+	create/init the wave/lpuser for the init template process
+*/
+ /bin/rm -Rf /apps/parseapp3/clist2/*
+
+ git clone https://github.com/deehill/clist.git /apps/parseapp3/clist2 "<< clist is the local dir"
+
+// /bin/cp -Rp /apps/parseapp3/ghubRepoTest /apps/parseapp3/clist2
+//		nope -- generates clist2/ghubRepoTest <<
+
+
+ /bin/cp -Rp /apps/parseapp3/ghubRepoTest/. /apps/parseapp3/clist2
+		yep -- the contents... not the top dir..
+ /bin/cp -Rp /apps/parseapp3/clist2/WebAppFolder /apps/parseapp3/clist2/waveAppFolder
+ /bin/cp -Rp /apps/parseapp3/clist2/WebAppFolder /apps/parseapp3/clist2/lpuserAppFolder
+
+ /bin/cp -Rp /apps/parseapp3/gff/gfoo/. /apps/parseapp3/clist2/waveAppFolder
+ /bin/cp -Rp /apps/parseapp3/hfoo/. /apps/parseapp3/clist2/lpuserAppFolder
+
+//-- /bin/cp -Rp /apps/parseapp3/ghubRepoTest/. /apps/parseapp3/clist2
+//		yep -- the contents... not the top dir..
+
+chown -R crawl_user:crawl_user /apps/parseapp3/clist2
+
+//--at this point... the /apps/parseapp3/clist2
+	has the dir/files for the init repos /template...
+
+/*
+	if this was implemented on the local.. it doesn't have the ssh key
+	scp to the ubuntu with ssh.. 
+	restore the updated repos...
+*/
+	rm -rf /home/crawl_user/aa/clist
+	rm -rf /home/crawl_user/aa/clist3
+
+//--run this!!!
+//-- did a quick.. rm of "git" files... does this affect the process???
+
+scp  -r /apps/parseapp3/clist2 root@161.35.5.174:/home/crawl_user/aa
+//cpy the clist2 dir.. to the aa dir.. /aa/clist2 <<< 
+
+
+// scp  -r /apps/parseapp3/clist2/* root@161.35.5.174:/home/crawl_user/aa
+// //cpy the clist2 dir/files.. to the aa dir.. /aa/"files"  no clist2 dirname <<< 
+
+
+////bin/rm -r /home/crawl_user/zz/*
+/// rm files.. leave dir
+////bin/rm -r /home/crawl_user/zz
+/// rm dir/files.. no "zz"
+
+
+
+//--test... dir vs files..
+cp  -r /apps/parseapp3/clist /home/crawl_user/zz
+ //--cp dir -- gets zz/clist2
+
+
+//-cp  -r -n /home/crawl_user/aa/clist2/* /home/crawl_user/aa/clist3
+
+
+
+	rm -rf /home/crawl_user/aa/clist3/.*
+	rm -rf /home/crawl_user/aa/clist3/*
+
+
+gh repo list
+
+--run from the ubuntu process 174
+git clone https://github.com/deehill/clist.git /home/crawl_user/aa/clist3
+
+	//rsync -avr /home/crawl_user/aa/clist3/*  /home/crawl_user/aa/ct  --ignore-existing
+	//rsync -avr /home/crawl_user/aa/clist3/.*  /home/crawl_user/aa/ct  --ignore-existing
+
+	//as root
+	chown crawl_user:crawl_user /home/crawl_user
+	rm -rf /home/crawl_user/aa/clist2/.git
+
+	rsync -avr /home/crawl_user/aa/clist2/*  /home/crawl_user/aa/clist3  --ignore-existing
+	rsync -avr /home/crawl_user/aa/clist2/.*  /home/crawl_user/aa/clist3  --ignore-existing
+
+
+sets up the updated test clist3 for the repos process
+https://rupeshchiluka001.medium.com/how-to-create-a-new-github-repository-from-command-line-and-push-your-first-commit-to-github-32827d20bb33
+https://dev.to/art_ptushkin/how-to-migrate-a-directory-from-git-repository-to-another-one-preserving-git-history-bitbucket-example-15m5
+
+--to figure out/test with adding the files/dirs to the base clist repos..
+
+cd /home/crawl_user/aa/clist3
+
+git add  --all 
+git config --global user.email "sam@yahoo.com"
+git config --global user.name "sam"
+
+git commit -m "first commit"
+
+git remote -v
+origin >>> 
+
+/--neither of these appear to work as is...
+git remote add origin https://github.com/username/repo_name.git
+git remote add origin git@github.com:deehill/clist.git
+
+//--this reset/sets the url to be able to use the sshkey --?? is thi required
+	seems to work
+git remote set-url origin git@github.com:deehill/clist.git
+
+//--pushes changes to the remote/upstream...
+git push
+
+
+
+lllllllll
+
+ /bin/cp -Rp /apps/parseapp3/clist2/WebAppFolder /apps/parseapp3/clist2/waveAppFolder
+ /bin/cp -Rp /apps/parseapp3/clist2/WebAppFolder /apps/parseapp3/clist2/lpuserAppFolder
+ /bin/rm -Rf /apps/parseapp3/clist2/waveAppFolder/*
+ /bin/rm -Rf /apps/parseapp3/clist2/lpuserAppFolder/*
+
+
+
+ /bin/cp -Rp /apps/parseapp3/gff/gfoo/. /apps/parseapp3/clist2/waveAppFolder
+ /bin/cp -Rp /apps/parseapp3/hfoo/. /apps/parseapp3/clist2/lpuserAppFolder
+
+ /bin/cp -Rp /apps/parseapp3/ghubRepoTest/. /apps/parseapp3/clist2
+		yep -- the contents... not the top dir..
+
+ /bin/cp -Rp /apps/parseapp3/clist2/. /apps/parseapp3/clist
+		test/try --??yep -- the contents... not the top dir..
+
+ppppp
+
+
+
+
+
+
+
+

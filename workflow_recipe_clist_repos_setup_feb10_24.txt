@@ -1,0 +1,246 @@
+workflow_recipe_clist_repos_setup_feb10_24.txt
+
+setup the clistt repos for the wave/reactjs github test apps
+
+goes through the process of fetching the wave / reactjs apps 
+ from github
+	-creates local/clone repos/dirs
+	-adds an overall "template" dir/file structure 
+	 that is the basic structure to buiding the webapps for 
+	 the jniboos process
+	-the final "repos" consists of the overall structure, 
+	 and the subdirs for the wave/reactjs apps
+	-the idea is to then use this repos as the basis of 
+	 implementing the recipe to setup the webapp on the base 
+	 droplet....
+
+the recipe to generate the "clistt" repos follows:
+	this might change as required..
+
+create remote repos to start
+ do this in the url/github process
+ use the test url ssh to access the repos
+ -this could have been https.. use ssh for now..
+
+ in order to use ssh.. need to set local ssh pub/priv key
+ -and copy the sshpub key to the github user/repos
+  -does there need to be ssh pub/priv key for each repos 
+	for the user/acct... or can one ssh pubpriv key work?
+  -how to test this... for diff repos..
+
+
+actions...
+
+local
+ create sshkey pub/priv
+
+remote:
+ create acct/user
+ create test repos "testA"
+  setup ssh privkey for testA repos
+	get the "ssh" url for the testA repos
+	use this on the local side to mod the repos...
+
+do local opertions using the "gh" cmds...
+means the local ubuntu os has to "apt install gh" 
+
+
+/*
+	provide example/logic/doc to the user to show how to set up
+	ssh pub/priv key
+
+*/
+//--initially set user/sshkey pub/priv to access Github/repos/proj
+//--pubkey in the github/sshkey area for the user
+//--privkey stored in the user .ssh/config file
+
+chmod 777 -R /home/crawl_user
+chmod 700 -R /home/crawl_user/.ssh
+chmod 700 -R /home/crawl_user/.ssh/config
+chmod 700 -R /home/crawl_user/.ssh/id_ed25519_g
+chmod 664 -R /home/crawl_user/.ssh/id_ed25519_g.pub
+chmod 700 -R /home/crawl_user/.ssh/known_hosts
+
+
+
+   ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_g 
+	//--this works  -sets up the process to use sshkey pub/priv keys
+		when the ssh pubkey is copied to repos... for the sshkey..
+
+ set chown/chmod for dir/keys
+ use pub for github website newkey
+
+set ~\.ssh\ "config"
+Host github.com
+  HostName github.com
+  ## 67.205.151.11
+  User git
+  AddKeysToAgent yes
+  #UseKeychain yes
+  IdentityFile /home/user_foo/.ssh/id_ed25519_g 
+  IdentitiesOnly yes   
+      
+
+this appears to be the issue when then running 
+test using::
+ dir$ ssh -vT git@github.com
+
+
+/*
+	process uses the initial "ctest" repos from the github.com/deehill/ctest  clist2
+
+
+	the initial/base projOverviewDirFolderStructure has the following structure:
+			ghubRepoTest
+			ghubRepoTest/Database_ChecklistFolder
+			ghubRepoTest/DevProcess_ChecklistFolder
+			ghubRepoTest/DnsDropletSwitchingRollover_ChecklistFolder
+			ghubRepoTest/LoggingProc_ChecklistFolder
+			ghubRepoTest/LoggingProcess_ChecklistFolder
+			ghubRepoTest/lpuserAppFolder
+			ghubRepoTest/Monitoring_ChecklistFolder
+			ghubRepoTest/Production_ChecklistFolder
+			ghubRepoTest/projMgmt_ChecklistFolder
+			ghubRepoTest/Release_ChecklistFolder
+			ghubRepoTest/RollbackFailoverProcess_ChecklistFolder
+			ghubRepoTest/SecurityII_ChecklistFolder
+			ghubRepoTest/SystemOps_ChecklistFolder
+			ghubRepoTest/Test_ChecklistFolder
+			ghubRepoTest/ThreatAssessmentDetectionRemediationProcess_ChecklistFolder
+			ghubRepoTest/waveAppFolder
+			ghubRepoTest/WebAppFolder
+			ghubRepoTest/Website_ChecklistFolder
+			ghubRepoTest/webRepoDoc.txt
+
+	the structure/folders has the general layout for various phases 
+	 of proj development -dev/test/rel/prod
+	has the layout for checking/testing various phases
+	has the layout for the webApp/proj -- the codebase/libs
+	has the proj timeline for the proj
+	etc... 
+*/
+
+	/*
+		running from the 174 droplet...
+		running as user crawl_user
+		--create the "base" repos that has the initial raw template 
+			dir struct for creating/deriving proj repos
+	*/
+
+	gh auth status
+
+	//cp the base/struct/dir for the proj
+	git clone   git@github.com:deehill/clist2.git /home/crawl_user/aa/clist2
+
+
+	gh repo create  //-name base
+	git init -b main
+
+	//git add -A
+	//git commit -m "1st commit"
+	git branch -M main
+	/bin/cp -rf /home/crawl_user/aa/clist2/. /home/crawl_user/aa/base/
+
+	git commit -m "2nd commit"
+	git add -A
+	git commit -m "mma"
+
+	git remote -v
+	//git remote add git@github.com:deehill/base.git
+	git remote add origin git@github.com:deehill/base.git
+	git push -u origin main
+
+
+	//--the process creates/uploads the base "repos" which has the 
+	//--template/struct/folders/etc.. once done, this doesn't 
+	//--	have to be redone for other webapp projects,,
+	//-- will be able to copy/download this.. and modify locally 
+	//-- as needed.. 
+	//-- the download/modification/uploed new proj/repos process will 
+	//	 have th updated changes..
+
+	//--runs from 174
+	//--runs as crawl_user
+	//--from the /home/crawl_user/aa dir
+	su crawl_user  (or whatever user is required)
+
+	/bin/rm -rf /home/crawl_user/aa/base2
+	/bin/rm -rf /home/crawl_user/aa/clistt
+	/bin/rm -rf /home/crawl_user/aa/hfoo
+	/bin/rm -rf /home/crawl_user/aa/gfoo
+
+	mkdir /home/crawl_user/aa/clistt
+	mkdir /home/crawl_user/aa/hfoo
+	mkdir /home/crawl_user/aa/gfoo
+
+
+	/bin/cp -Rp /home/crawl_user/aa/base/. /home/crawl_user/aa/base2
+		//yep -- the contents... not the top dir..
+
+	/bin/rm -rf	/home/crawl_user/aa/base2/.git
+		//to insert into the actual "clist" repos
+
+	/bin/cp -Rp /home/crawl_user/aa/base2/WebAppFolder /home/crawl_user/aa/base2/waveAppFolder
+	/bin/cp -Rp /home/crawl_user/aa/base2/WebAppFolder /home/crawl_user/aa/base2/lpuserAppFolder
+	/bin/rm -Rf /home/crawl_user/aa/base2/waveAppFolder/*
+	/bin/rm -Rf /home/crawl_user/aa/base2/lpuserAppFolder/*
+
+	/bin/rm -rf /home/crawl_user/aa/gfoo
+	/bin/rm -rf /home/crawl_user/aa/hfoo
+
+	git clone  -b paddle-billing-api-v2  https://github.com/thedevdojo/wave.git /home/crawl_user/aa/gfoo
+	git clone   https://github.com/adith-a-danthi/hoobank.git /home/crawl_user/aa/hfoo
+
+
+	/bin/rm -rf /home/crawl_user/aa/gfoo/.git
+	/bin/rm -rf /home/crawl_user/aa/hfoo/.git
+
+	/bin/cp -Rp /home/crawl_user/aa/gfoo/. /home/crawl_user/aa/base2/waveAppFolder
+	/bin/cp -Rp /home/crawl_user/aa/hfoo/. /home/crawl_user/aa/base2/lpuserAppFolder
+
+	//--set up clistt
+	/bin/rm -rf /home/crawl_user/aa/clistt
+	mkdir /home/crawl_user/aa/clistt
+	cd /home/crawl_user/aa
+	gh auth status
+	gh repo create  //-name base
+
+		? What would you like to do? Create a new repository on GitHub from scratch
+		? Repository name clistt
+		? Description w
+		? Visibility Public
+		? Would you like to add a README file? No
+		? Would you like to add a .gitignore? No
+		? Would you like to add a license? No
+		? This will create "clistt" as a public repository on GitHub. Continue? Yes
+		✓ Created repository deehill/clistt on GitHub
+		? Clone the new repository locally? Yes
+
+	git init -b main
+
+	//git add -A
+	//git commit -m "1st commit"
+	git branch -M main
+	chown -R crawl_user:crawl_user /home/crawl_user/aa/base2
+	/bin/cp -rf /home/crawl_user/aa/base2/. /home/crawl_user/aa/clistt/
+	chown -R crawl_user:crawl_user /home/crawl_user/aa/clistt
+
+	git commit -m "2nd commit"
+	git add -A
+	git commit -m "mma"
+
+	git remote -v
+	//git remote add git@github.com:deehill/base.git
+	git remote add origin git@github.com:deehill/clistt.git
+	git push -u origin main
+
+!!! success....
+
+/*
+	at this point... should have created/copied a "test" repos for having the 
+	basic template/srtuct/folders/files etc..
+	 use this to build the test webapp for the init landingPageTestApp 
+	 containing the wave/reactjs webapps..
+*/
+
+

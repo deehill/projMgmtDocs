@@ -1,0 +1,17 @@
+workflow_recipe_wave_landingPage_webapp_init_template_setup_feb10_24.txt
+
+
+process uses the "clistt" repos from the github.com:deehill/clistt
+
+has the basic structure for the wave/reactjs beginning test webap
+webapp is meant to display/show to potential devs the UI/UX for 
+	the waveApp/reactjsApp on the apache2 webserver
+
+process has to clone/download the dir/structure for the "clistt" repos
+
+process adds the files/dirs to the /var/www/html
+process updates the dirs...
+
+run the steps listed in the 
+	github_wave_droplet_setup_steps_jan25_24.txt
+

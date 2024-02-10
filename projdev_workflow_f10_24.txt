@@ -1,0 +1,161 @@
+projdev_workflow_f10_24.txt
+
+-rough start for workflow for user working 
+ with a proj/repos/branch
+-has rough actions/workflows
+-modify as needed to provide a new developer/resourse a better 
+	understanding of the workflow processes for 
+	working with the "projects" and the github/git/gh 
+	operations
+-these workflows are a basic starting point, over time, 
+	these might be modified. there might be more worflows 
+	defined/used
+
+this workflow doc is referred in the 
+	github_repos_master_list_projmgr_workflows_docs_feb10_24.txt
+
+The current rough workflows are:
+	proj dev workflow
+	proj test workflow
+	proj setup/install workflow:::
+
+
+proj dev workflow::::
+ start proj "projA"
+ repos/branch
+ create user sshkey priv/pub 
+
+ local
+  clone/download "projA" repos/branch
+  add/cpy/insert "templateRepo" -- with basic projDir/Sruct
+	to the projA repos/branch
+
+	/*
+		the templateRepo insert --- happens once
+	*/
+
+	after the templateRepo insert
+	clone/download "projA" repos/branch
+
+  dev can now edit/mod/change code
+
+
+ make edits to code
+	-at this point, user should have
+	 code on local srvr for testing..
+	-probably better to have the overall "clone"
+	 repos process actually create the initial/complete 
+	 dev env with everything required to "dev"/"test" 
+	 the code
+	-or, create a basic snapshot every X days with 
+	 everything needed to run the proj/repos and have 
+	 the dev, check out the code (repos/branch) 
+	 and insert it to the local dev/env for the user
+	-this could work, but the snapshot for the new 
+	 droplet could get to be "expensive" over time
+	 if there are multiple "devs" --each would a 
+	 sep instance.. 
+	-need to resolve this...
+	-having multiple "devs" working with the proj on the 
+	 same droplet/codefiles wouldn't work
+	-resolve this..
+
+	-once code changes are made.. either by single/multiple 
+	 devs.. test the code..
+	-need to be able to test code for given changes/timeframe
+	-user makes code updates in their chunks/files
+	-needs to communicate changes to api/interface with 
+	 dev/team
+	-need to document/comment api/interface/query attributes
+
+	-work out how to code/test
+		-basic process..
+		-dev checks out repos/branch
+		-if single dev.. no issue
+		if multiple devs
+			dev checks with other devs for changes..
+			each dev checks out "repos/branch"
+			works on the required change/file..
+			agrees on time to check everything back in
+			-the checkin will have to be "separate" 
+				branch?? for the files to be checked..
+			-figureout how to make change to same file 
+				by multiple dev at same time.
+				-inclined to have a dev make change 
+				 with doc/comment.. 
+				 pass to next dev -- changes/doc etc..
+				repeat until checked back in new branch/version 
+				 for testing...
+			testing might be done by each dev for their change, 
+			 or by single dev for all changes (which is why dev 
+			 needs to doc change/test) 
+
+	-once dev makes updates/changes to code.. 
+	-dev checks code in/updates branch for testing 
+	-test branch/code is then tested once the dev/devs 
+	 have all checked in
+	-no one can then check out branch until it gets tested
+	 -put a "testblock" on it to remove confusion
+	-when testing complete for the commented/doc changes, 
+	 recode if issues persist..or merge branch/version into 
+	 the main with updated version
+		this gets the current/previous branch/version for 
+		rollback
+
+	have process to add issues/funcs/new features/requirements
+	-for new code/dev/branch/testing
+
+ -should code be tested 
+
+
+proj test workflow:::
+testing process/flow
+devs modifying code for the proj
+ repos/branch-version
+ -devs check out code (proj/repos/branch/version) to local srvr
+	modify the code
+	run the code/test the code for the "changes" on the 
+	 local srvr
+	only basic testing... for the tgt changes/errs/issues/features
+	for more comprehensive testing to create new/updated version
+	-code is checked in to the repos/branch/version
+		code may also be rolled in from other users to the 
+		"test" version...
+		somehow need to have a process where user/dev 
+		 creates "branch" "version_test"
+		 each user checking out creates "version_testX"
+		 	does their code mod
+			updates/checks in the version_testX
+		 when each/all users have completed the code/mods and 
+			checked in..
+		 code is "reviewed" and then merged to "version_test" 
+		code is then tested ...
+		process repeats if errors/issues aren't resolved..
+		if testing success.. test_check is signed off
+			for version, 
+		updated version/repo created, current version is pushed back
+
+
+
+proj setup/install workflow:::
+user/view testing (pre-release) code for the proj
+ repos/branch-version
+ -dev/system checks out code (proj/repos/branch/version) 
+	to local srvr
+ -checks out complete system proj/repos/branch to build 
+	tgt/local srvr
+ -process will be able to auto create/start the 
+	apps/processes/db etc
+ -create all required sys apps/processes to start/run the 
+	webapp (server -- webapp/libs/scripts to run/etc..)
+ -might be used to create/use an initial cloud/instance that's 
+	been setup to run the webapp..
+ -define the overall setup/install process/repos for the proj
+ -define the docs/steps to do the setup..
+
+ -once the tgt srvr/proj/repo/process is running..
+	webapp/tgt app should be running..
+	allows "user" to access/run the tgt app at the 
+	tgt "url"
+
+

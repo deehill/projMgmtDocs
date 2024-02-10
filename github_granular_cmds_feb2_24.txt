@@ -1,0 +1,433 @@
+github granular cmds...
+github_granular_cmds_feb2_24.txt
+
+
+https://production-gitops.dev/contribute/githubflow/#the-open-source-contribution-process-step-by-step
+		https://help.github.com/articles/fork-a-repo/
+		https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+https://phoenixnap.com/kb/how-git-works
+https://www.quora.com/How-do-you-create-a-new-branch-on-GitHub-using-git
+https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/git-push-new-branch-remote-github-gitlab-upstream-example
+
+
+
+
+apparently you can't forkk the app that you're owner of!!
+I tried to fork a repos of a test in my github acct!!
+	not happening.
+
+not exactly sure what the process of forking does...
+	to get copy of files locally from "fork"
+	-for the repos
+	-do the fork -- does this get a copy of the tgt repos on your github/repos.. 
+	-then, on the local sys...
+		mkdir /dirA
+		cd /dirA
+			clone the "forked repos"
+			this gets "complete" dir/subdir/files of the repos/proj
+		
+ 
+in order to "copy" the files from a gthub project:
+	fireup the github/browser to the project url
+	https://github.com/thedevdojo/wave
+
+	select the green "code" btn..
+	select the download zip link, and unzip the 
+	 files on the local side..
+
+-or-
+	do a clone of the repos..
+	mkdir /devtest 
+	cd /devtest
+		do the unzip or the clone here...
+
+		gets the proj dir/files
+
+			git clone  -b paddle-billing-api-v2  https://github.com/thedevdojo/wave.git gfoo
+			git clone   https://github.com/adith-a-danthi/hoobank.git /apps/parseapp3/hfoo
+
+		generates the "file"
+					with the ".git" dir that maintains the git/history
+
+
+		git remote -v and press Enter. 
+		You will see the current configured remote repository for your fork.
+
+			$ git remote -v
+			> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+			> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+
+			//--research "sync" for upstream repos
+
+			$git remote add upstream https://github.com/ORIGINAL_OWNER/Spoon-Knife.git
+
+			To verify the new upstream repository you have specified for your fork, 
+				git remote -v again. 
+					You should see the URL for your fork as origin, and the URL for the upstream repository as upstream.
+
+				$ git remote -v
+				> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+				> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+				> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+				> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+
+"origin" is the alias for the github/remote repos "url"
+
+git remote rename origin mynewalias
+	--does a rename/change of the origin to another "alias"
+git remove -v
+ --does a list of the aliases (see above)
+
+----for checkout branch
+cd repos1
+	git checkout -b new-branch
+		//switches to new-branch
+
+git branch -a
+
+
+
+--need to understand git checkout -b new-branch
+ does it create a new dir
+ does it operate in the same dir
+ what files does it operate on
+ how do files get there
+ does user manually place them?
+ can you do multiple/simultaneous "checkout -b new-branch2"
+ eg
+	if user is in the "base" dir from the initial "git init"
+	 or "git clone foo repos1"
+	and user does a "checkout -b new-branch"
+	exactly what happens??
+		on the remote/github repos
+		on the local "repos1" dir
+
+
+if the localDir for the github/git tests is:
+ /rtest
+
+I "cd /rtest"
+ in the "rtest" dir
+  	git clone   https://github.com/adith-a-danthi/hoobank.git /hfoo
+ which then gets/fetches files 
+	creates the "repos" files in the 
+	/hfoo dir
+	.git
+	
+----or----
+is it...
+do a clone/setup the base wd
+ this would contain the base files you want to work with/from..
+ base files could be the base/main of the "tgt_repos" or it 
+	could be the "branch" of the "tgt_repos"
+
+either way.. if you do the git remote -v
+ what gets shown as the "origin"
+
+if the curdir is then the "wd"
+ if you simply make changes to the wd/files/etc..
+ are you then working in the "origin"/base dir
+ so any git add -A
+  git commit
+  etc..
+  will/should then update the "main" or the input "origin" 
+	used from the "git clone"...
+
+  at this point, there is no "branch"...
+
+
+  
+ but..
+ 
+ if you simply make changes to the wd/files/etc..
+ are you then working in the "origin"/base dir
+
+ you then do a "git checkout -b "new_branch"
+ you still have the "codebase" in the wd/curDir...
+ -so any file changes are to the "new_branch"
+  the "git remote -v"
+    should then show the "branches" as well as 
+	 the selected/cur branch..
+
+ so any git add -A
+  git commit
+  etc..
+  will/should then update the tgt "main" or the input "origin" 
+	plus "new_branch"
+
+	used from the "git clone"...
+
+
+need to test/walkthrough this..
+then how do you merge?
+how do you copy from projA to projB
+
+
+*****
+login as user to github...
+ -to create repos
+https://github.com/new
+
+git clone https://github.com/other-account/other-repository.git
+git clone https://github.com/thedevdojo/wave.git /home/crawl_user/aa/cptest
+cd /home/crawl_user/aa/cptest
+git fetch --all
+
+//--shows list of branches
+git branch -a
+
+git remote -v
+
+//
+//git checkout -b local-branch-name origin/remote-branch-name
+
+git checkout -b feature-y origin/feature-y
+git checkout -b paddle-billing-api-v2 https://github.com/thedevdojo/wave.git/paddle-billing-api-v2
+
+
+git remote rename origin upstream
+ --for copying from wave to upload to deehill ctest
+https://github.com/deehill/cptest.git
+ssh --> git@github.com/deehill/cptest.git
+
+git remote add origin https://github.com/your-account/your-repository.git
+git remote add origin git@github.com:deehill/cptest.git
+
+git remote -v
+
+origin	git@github.com:deehill/cptest.git (fetch)
+origin	git@github.com:deehill/cptest.git (push)
+upstream	https://github.com/thedevdojo/wave.git (fetch)
+upstream	https://github.com/thedevdojo/wave.git (push)
+crawl_user@ubuntu-s-1vcpu-2gb-nyc1-01-base-174:~/aa/cptest$ git push origin main
+
+git commit
+On branch main
+Your branch is up to date with 'upstream/main'.
+
+nothing to commit, working tree clean
+
+inspected the github.com for the cptest repos...
+ --files are there!!!
+
+~~~~~!!!!!!!!!so now  branch test...
+  //--checks/displays the curBranch   
+//git branch newBranch  -creates new branc
+
+//--show branch list
+git branch -a
+git branch -v -a
+
+
+//--switch branch from branch list
+git switch paddle-billing-api-v2
+
+
+
+  //--set the "new-branch"
+//git checkout new-branch
+
+//cloning a branch/repos to the local dir
+git checkout -b paddle-billing-api-v2 https://github.com/thedevdojo/wave.git/paddle-billing-api-v2 fooDir
+git checkout -b paddle-billing-api-v2 https://github.com/thedevdojo/wave.git/paddle-billing-api-v2 /home/crawl_user/aa/cptest
+
+
+
+//--does the create newBranch, as well as switches to the 'newBranch'
+git checkout  -b newBranch
+
+//git checkout new-branch
+//git checkout newBranch
+
+cecks/displays the curBranch
+//add the files
+
+git push --set-upstream origin new-branch
+git push --set-upstream origin paddle-billing-api-v2
+
+/*
+	once the branch is pushed..
+	go to user/github reload to verify successful update of branch..
+*/
+
+
+
+/*
+need to test to see how to use a branch...
+	check it out..
+	make some basic mods..
+	check it back in..
+*/
+
+//--create/set "newBranch"
+ git checkout -b newBranch
+ git checkout newBranch
+
+//--sets "newBranch" to be used for the remote repos
+
+
+//--list branches
+ git banch -a
+
+echo "sdsdssds " > foo.txt
+
+//new file in the proj
+//branch namme selected/specified
+
+update repos with new branch..
+//--switch to the "newBranch" to update/upload the modified repos/branch
+ git switch newBranch
+
+//--check/list repos branches -- ensure correct one selected 
+ git branch -a
+
+//--check/list repos origin
+ git remote -v
+
+git add -A
+
+git commit -m "testt"
+
+//--push the 
+git push --set-upstream origin newBranch
+
+//?? does the abov work to get new branch??
+seems to work..
+ the github deehill/newBranch has a pull request..
+
+
+feb2
+need to figre out pull equests..
+-how to handle merging..
+-how to rollback
+-how to update my branch with other changes/updates 
+ to test
+ -do yo make a "sep" testBranch with all test/change branches..
+	test this.. if it works, update the main..
+ make each valid "main" a new version
+ can always go back to the valid version prio to changes
+	updated wih given branches
+
+basic workflow
+ uses branch or main
+ test on new or testDroplet
+ -allow any user to test their branch/main version
+ -store test in github/testfolder
+
+test1:
+ inputBranch
+ inputRepos
+ input testDroplet IP
+ test will have pubkey for test to run (is this right??)
+
+ test gets run from the testDroplet
+ need to fire off/run the test via ssh/exec to the testDroplet
+	inside the tgtServer/testApp
+	fire off whatever process is required
+	log during tests
+	define what to log/how to log/where to log for test
+	start with "clean" droplet/os
+	init tgtServer
+	 -meaning, rsync into droplet whatever is required
+	 -or just use the base droplet
+	fire up the webapp
+	run testsuite
+	does testsuite get run within tgtServer or 
+		by user running the test from their env, or 
+		another server
+	once testsuite is complete, get the logs, update github/proj/version/logs
+ 	  for view/checkoff
+
+ find examples/resources/tutors on this
+ develop workflows/processes for updating tgtserver with test/rel/prod 
+	process..
+ this works with the checklist concept/process
+ define the items to be on the checklist for the diff subsections
+	in the/a workflow
+
+
+ fetch repos/branch to test
+ 
+
+
+
+/*
+	need to test how to do a merge of a branch into the main
+
+	what would be steps??
+	hmm i guess...
+
+	connect to github --for git/gh cmds
+	get fetch  -- to check out the repos
+	
+*/
+
+
+
+
+
+Took this off the ubuntu list in case someone complained.Oh, if my pinging you with this wasn't cool, my apologies,
+
+But, if it is ok to ask you, here are/is my issue!
+Trying to wrap my head around the concept  of "git checkout -b new-branch"
+Thought I'd see if you have an understanding or can point me to something that does..
+I've been looking at lots of sites.. They seem to say the same things, and I'm missing it.
+
+--need to understand git checkout -b new-branch
+ does it create a new dir
+ does it operate in the same dir
+ what files does it operate on
+ how do files get there
+ does user manually place them?
+ can you do multiple/simultaneous "checkout -b new-branch2"
+ eg
+    if user is in the "base" dir from the initial "git init"
+     or "git clone foo repos1"
+    and user does a "checkout -b new-branch"
+    exactly what happens??
+        on the remote/github repos
+        on the local "repos1" dir
+  what/how does the user then upload the modified files in the "new-branch"
+ 
+do you have a "workflow" of how this works?
+
+thanks
+
+
+
+Hi Michael/BigMike
+
+Thanks for your reply the other day...
+
+Trying to wrap my head around the concept  of "git checkout -b new-branch"
+
+Thought I'd see if you have an understanding or can point me to something that does..
+
+I've been looking at lots of sites.. They seem to say the same things, and I'm missing it.
+
+--need to understand git checkout -b new-branch
+ does it create a new dir
+ does it operate in the same dir
+ what files does it operate on
+ how do files get there
+ does user manually place them?
+ can you do multiple/simultaneous "checkout -b new-branch2"
+ eg
+    if user is in the "base" dir from the initial "git init"
+     or "git clone foo repos1"
+    and user does a "checkout -b new-branch"
+    exactly what happens??
+        on the remote/github repos
+        on the local "repos1" dir
+  what/how does the user then upload the modified files in the "new-branch"
+ 
+do you have a "workflow" of how this works?
+
+I've got the Github/Digital Ocean test droplets to test all of this. But missing something subtle.
+
+thanks
+-bruce
+
+
+
+

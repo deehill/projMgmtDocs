@@ -1,0 +1,143 @@
+fiverr_github_tutor_usecase_setup_feb1_24.txt
+
+
+Hi.
+
+Looking to use github for a project. 
+nextdoor_1
+The project will use github (git) as the version control system, so I'm going to need to have someone who knows/lives/breathes git/github/git to create "tutorial" workflows/examples for the small team.
+
+This is a small project, but it needs to have some sort of dev/testing structure.
+
+Topical Issues
+create/manage repos
+allow users to interface with issues
+tie repository/branch/versions into project
+handle user  dev/test/release
+handle user/team signoff process
+possible auto testing of a given branch/version
+
+ability to copy/clone code from multiple other repos 
+ and create/update/insert dirs/files in tgt repos
+
+workflows/examples showing remote/local git cmds for 
+"all" areas/phases of dealing with a project/repos
+
+checkin/out repos/dir/file   -- for version/branch/etc..
+change code
+commit code
+test code
+
+create scripts to handle testing of app/code on local system
+
+I'm expecting/hoping whoever replies, has serious skills in the area and can suggest more/or less in terms of git/github actions that should be covered.
+
+If you're interested, let's talk.
+
+thanks
+
+
+github
+what is pull request
+
+
+https://yangsu.github.io/pull-request-tutorial/
+https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github
+https://wilsonmar.github.io/git-basics/
+
+https://production-gitops.dev/contribute/githubflow/#the-open-source-contribution-process-step-by-step
+might work...
+has diagram... has steps
+
+
+
+
+
+
+steps/process/workflow
+-create basic repo from scratch
+-populate repo from another repo
+-download/check out repos to local dir
+-create/init basic repo from local dir/subdir
+-git add
+-git init
+-git clone
+-handle/create sshkey pub/priv
+push/pull functions
+ --what are they/how to they work
+create version/branch with local changes
+understand how these changes get reviewed/checked off
+understand how to have "backup"/version control, able to 
+ rollback from dev additions
+
+
+
+fetch/checkout 
+
+diagram(s) illustrating overall processes
+use test github repo for actions
+
+
+
+
+
+
+
+Hi Ian...
+
+How goes the Github learning tour!
+
+Couple questions if you don't mind.
+
+1st, what are you trying to do, what kind of help would you need/want if you could find it? Curious to know if there's anything I might be able to do to help you.
+
+2nd, I'm interested in getting a good/basic tutorial of the "basic" functions for someone who is going to use Github. In other words, if one is going on work on a project that uses Github/git/gh, what should they know, and then where's the tutorial that walks the user through all of these things.
+
+In my research for this, I've come across tons of videos/Github docs/Other sites. Some better than others. 
+
+So, my questions to you, if you don't mind.
+
+1) Have you found any seriously good tutorial/walkthrough eample sites for Github/git?
+2) If you're onboarding a user that's joining a project using Github, would have you thoughts on the Github actions/processes/workflow the user should know?
+
+I think I'm going to need to create this beast to get a good feel for dealing with Github. All of this is for a project I want to get going, but in order to find a dev/resource with somethig like 'Fiverr', I think I'm going to need to be able to be sure they have the base Github skills (as well as myself!).
+
+thoughts/comments
+
+thank
+
+
+
+Hi
+
+Looking for someone skilled in working with Github.
+
+Need to discuss how to create test workflows for a few test repositories. If youhave serious Github/git/gh skills on Ubuntu, let's talk. 
+
+Once I find the "right" person, we can scope out whats needed and come to a fair price!
+
+Once this proect is accomplished, we can talk about what the net piece is, and if you'd like to be involved.
+
+Thanks
+
+
+Hi Arslan
+
+Thanks for the reply.
+
+I'm working on a longer project, where I expect to have a dev or two build some webapps. This will/shpuld requie a dev/test/prod kind of workflow process. So, I'm envisioning needing to have a basic Github process defined for the dev/project. 
+
+The process should have "examples" of working with actual "repos/branches" as well as implementing various actions on the cmdline with "git/gh". The idea being to have the potential dev look over the "process" and the actions to know if the dev has the skills to work on the project. This can be in the form of some sort of checklist for the dev.
+
+At the same time, the process will need some basic workflow(s) to be able to run tests from github repos/branches to run the process on cloud instances. We can discuss this more.
+
+And of course, the process docs/examples should walk through creating branches/cloning, merging, etc. Also, how/when to create new version, to help with rollback in the event of mishaps.
+
+Is this something you might be interested in?
+
+Have you skills in this area? I'm looking for someone who knows this cold. Not for someone looking to "learn" it.
+
+Thanks
+
+-bruce
+

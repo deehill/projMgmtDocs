@@ -1,0 +1,33 @@
+github_repos_master_list_projmgr_docs_feb10_24.txt
+
+list/type of initial docs to guide projMgr as 
+ well as new "dev" for creating a webapp/proj
+ for the jnibooks process
+
+used to determine which kinds of actions for 
+ github should be covered with examples
+	example -Github/remote/local 
+	sshkey setup
+	gh/git action
+	input/output of action and why
+
+onboarding process for a new dev
+ what you need to be able to do
+ to checkin/out repos/branches
+
+for the projmgr, doc to layout what the 
+ objectives of the projmgr is
+	identify github actions for 
+	 gh/git/github
+	create recipes/workflows for the 
+	 actions
+	how to setup baseic template of 
+	 dir/folder structure for repos/proj
+
+each of these 3 files are related to the projMgr process
+
+github_repos_master_list_projmgr_actions_docs_feb10_24.txt
+github_repos_master_list_projmgr_onboarding_docs_feb10_24.txt
+github_repos_master_list_projmgr_workflows_docs_feb10_24.txt
+
+

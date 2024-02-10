@@ -1,0 +1,172 @@
+github_repos_master_list_projmgr_workflows_docs_feb10_24.txt
+
+
+
+github_repos_master_list_projmgr_docs_feb10_24.txt (topdoc)
+
+github_repos_master_list_projmgr_actions_docs_feb10_24.txt
+github_repos_master_list_projmgr_onboarding_docs_feb10_24.txt
+==github_repos_master_list_projmgr_workflows_docs_feb10_24.txt
+
+	github_tutor_for_steps_cmds_feb1_24.txt
+	fiverr_github_tutor_usecase_setup_feb1_24.txt
+	github_granular_cmds_feb2_24.txt
+
+
+-workflow_recipe_clist_repos_setup_feb10_24.txt
+workflow_recipe_wave_landingPage_webapp_init_template_setup_feb10_24.txt
+projdev_workflow_f10_24.txt
+
+
+
+=================
+	github_tutor_for_steps_cmds_feb1_24.txt
+
+steps:
+  remote
+ create the base repos 
+
+ local
+ create dir structure -- folders/files
+ -use this as the template/structure for updating 
+ 	the repo
+	ex
+		topdir
+			subdir
+			subdir
+			subdir
+			.
+			.
+
+ clone/copy the base repos
+ on thelocal/cmdline
+ -copy/clone repos1 from github (github.com/foo.git)
+	this will have it's own file structure
+	add this to the base repos in a subdir
+ -copy/clone repos2 from github (github.com/foo2.git)
+	this will have it's own file structure
+	add this to the base repos in a subdir
+
+ the goal is to show how to take/use folders/structs from 
+	other repos in a given repos
+	and to then update the base repos with the new/combined 
+	strcture
+
+ be able to extract the struct/dirs from the updated repos 
+	to be able to then copy the dirs/files from the 
+	repos on the local cmdline/env to add to a webserver
+
+ be able to "download"/clone from the repos to make  changes 
+	to it, so others can view the changes, and check in 
+	the changes to have valid branches..
+
+
+*
+show how to have multiple users make changes to the same "code"/file 
+ and 
+	track the changes
+	merge the changes
+	does this generate a different branch?
+	how does this work?
+	what's this kind of workflow entail?
+	what are the steps to do this?
+
+
+
+*
+it appears the concept of "branch" is the same as "version"
+ is this correct?
+how do you make changes to a given select version on the 
+ cmdline?
+if multiple users make changes to a file in a branch, 
+ how do the changes get reconciled?
+what's the sequence of steps to do this?
+	comand line steps/actions --actual cmds (linux -- git/gh)
+	user select the repo/branch
+	user downloads/uses the branch locally
+		does user have ability to download/checkout 
+		 single/multiple files? specific folder? 
+		how does this work.. need to document this.
+	user makes "edits" to the "files" in the given dir(s)
+	 -
+ 	user updates the changes to the files/repos
+	process merges changes to files/repos/versions
+		do changes go in a given branch/version?
+		how do users "ensure" same branch/version 
+		 is being worked on?
+	what process is/can be deployed to be able to 
+	 test a given version/branch/repos being 
+	 worked on
+	-workflow process for users to be on same 
+	 page during the "dev"/testing/release process
+	user checks out repos/branch/version for 
+	 testing
+		process gets the files on the local 
+		 system
+		process copies/places files in the tgt 
+		 dirs for testing
+		process runs "testing" scripts (which 
+		 would need to be in repos as well)
+		process deploys webapp/env as well..
+
+	etc..
+need steps for all of this..
+so, need to work with you to walk though what steps/workflow 
+ has to created
+create the process/workflows/steps
+test all off this for the github/repos/test scenario
+-be able to then have docs/examples of the basic 
+ functions of github for 
+	creating project repos
+	modifying repos
+	working in small team on given project
+	checking in/out, updating, rolling back project/repo changes
+	testing changes on local test system
+	working between different versions/branches
+	deploy tested code/branch to test/release srvr
+	document all steps with example cmds
+
+work with me over a few iterations to get this process working.
+
+	
+can/should user check out for local use files from 
+ multiple repos?
+ -might be needed/used to compare/make changes to 
+	diff versions?
+
+how do you "merge" changes made to 
+
+
+=========================================
+==========================================
+fiverr_github_tutor_usecase_setup_feb1_24.txt
+
+create/manage repos
+allow users to interface with issues
+tie repository/branch/versions into project
+handle user  dev/test/release
+handle user/team signoff process
+possible auto testing of a given branch/version
+
+ability to copy/clone code from multiple other repos 
+ and create/update/insert dirs/files in tgt repos
+
+workflows/examples showing remote/local git cmds for 
+"all" areas/phases of dealing with a project/repos
+
+checkin/out repos/dir/file   -- for version/branch/etc..
+change code
+commit code
+test code
+
+create scripts to handle testing of app/code on local system
+
+
+
+
+================================
+================================
+github_granular_cmds_feb2_24.txt
+
+
+
